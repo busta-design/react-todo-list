@@ -1,38 +1,106 @@
+header, body {
+    background-color: #282c34;
+}
+
 .App {
     text-align: center;
 }
   
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
-}
-
 .App-header {
     background-color: #282c34;
-    min-height: 100vh;
+    min-height: 30vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     font-size: calc(10px + 2vmin);
     color: white;
 }
 
-.App-link {
-    color: #61dafb;
+.App-header-search {
+    /* height: 50px; */
+    width: 1000px;
+    margin: 0;
+    padding-bottom: 15px;
+    font-size: larger;
+}    
+.InputText {
+    
+    /* color: #ffffff; */
+    /* background-color: #3D434F; */
+    height: 54px;
+    width: 594px;
+    /* size: 50; */
+    /* padding: 10px; */
+    margin: 0;
+    padding: 0;
+    font-size: large;
+    border-color: #694CED;
+    border-width: 3px;
+    box-shadow: #ffffff;
+    
+}
+/*
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    /* color: white; */
+    /* opacity: 1; Firefox */
+/* } */
+
+.App-header-button {
+    background-color: #524BDE;
+    height: 60px;
+    width: 100px;
+    margin: 0;
+    padding: 0;
+    font-size: large;
+    border-width: 2px;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.App-body {
+    background-color: #282c34;
+    column-count: auto;
+    align-items: center;
+    /* display: grid; */
+
+    /* grid-template-columns: 1000px 1fr; */
+    
 }
+
+.Body-span {
+    /* text-align: left; */
+    float: left;
+    
+}
+
+.Image {
+    width: 15pt;
+    /* text-align: center; */
+    float: right;
+    vertical-align: middle;
+    margin: 5px;
+    /* background-color: #282c34; */
+    /* box-shadow: inset; */
+}
+.Button {
+    background-color: #40DF9F;
+    margin: 0;
+    /* border: 0; */
+    margin: 0;
+    font-size: large;
+    vertical-align: auto;
+    align-items: flex-start;
+    /* text-align: center; */
+    color: aliceblue;
+    height: 50px;
+    width: 700px;
+    
+    /* text-align: left; */
+    /* vertical-align: middle;*/
+    /* justify-content: center; */
+    
+}
+/* .Text { */
+    /* vertical-align: middle; */
+    /* font-size: medium; */
+    /* align-items: flex-start; */
+/* } */
