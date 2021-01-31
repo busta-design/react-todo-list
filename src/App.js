@@ -1,4 +1,4 @@
-// import {useState} 
+// https://todo-list-fa452.web.app
 import { useState } from 'react';
 import './App.css';
 // import TaskList from './components/TaskList'
@@ -15,6 +15,7 @@ const COLOR_5 = '#0D86FA';
 const App = () => {
   const [ newItem, setNewItem] = useState("")
   const [ list, setList] = useState([])
+  const [ itemEdit, setItemEdit] = useState("")
 
   const colorRandom = () => {
     let numeroRandom = Math.floor(Math.random()*5)
@@ -37,6 +38,36 @@ const App = () => {
 
   const handleDelete = id => setList(list.filter( item =>  item.id !== id))
 
+  const handleEditClick = (id, value) => {
+    const editItemList = list.map( elem => {
+      if(elem.id === id) {
+        if(!elem.edit) {
+          setItemEdit(elem.value)
+          return {
+            ...elem,
+            edit: true,
+            value: itemEdit
+          }
+        } else {
+          return {
+            ...elem,
+            edit: false,
+            value: itemEdit
+          }
+        }
+      }
+      return elem
+    });
+    // setItemEdit("")
+    setList(editItemList)
+
+    
+  }
+
+  const handleEditInput = e => {
+    setItemEdit(e.target.value)
+  }
+
   const handleChange = e => {
     setNewItem(e.target.value)
     // console.log(newItem)
@@ -47,7 +78,8 @@ const App = () => {
     const auxNewItem = {
       id: 1 + Math.random(),
       value: newItem,
-      color
+      color,
+      edit: false,
     }
 
     const newList = [...list]
@@ -88,16 +120,32 @@ const App = () => {
       </div>
       
       
-      
+      {/* //USAR UN IF... PARA ABRIR Y CERRAR UN POSIBLE INPU/T PARA MOSTRAR UN NUEVO CUADRO DE INGRESO PARA EL "UpdateButton" */}
+
       {
         list.map( 
           elem =>(
             <div className="App-body">
               <button className="Button" style={{backgroundColor:elem.color}} key={elem.id} >
                 
-                <span className="Body-span" >{elem.value}</span>
+                <span 
+                  className="Body-span" 
+                  style={{display: (!elem.edit) ? 'block' : 'none'}} 
+                >
+                  {elem.value}
+                </span>
+                
+                <input 
+                  type="text" 
+                  className="Body-span" 
+                  value={itemEdit}
+                  onChange={handleEditInput} 
+                  style={{display: elem.edit ? 'block' : 'none'}}
+                />
+
+
                 <input type="image" alt="delete" src={DeleteButton} className="Image" onClick={ () => handleDelete(elem.id)} />
-                <input type="image" alt="update" src={UpdateButton} className="Image" />
+                <input type="image" alt="update" src={UpdateButton} className="Image" onClick={ () => handleEditClick(elem.id, elem.value)} />
 
               </button>
             </div>
